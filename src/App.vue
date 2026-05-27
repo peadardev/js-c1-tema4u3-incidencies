@@ -1,11 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import FormulariIncidencies from './components/FormulariIncidencies.vue';
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="container">
+    <h2>Formulari d'incidències</h2>
+    <FormulariIncidencies />
+  </div>
 </template>
 
 <style scoped></style>
