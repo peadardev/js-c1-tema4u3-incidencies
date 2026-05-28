@@ -113,41 +113,39 @@ function onSubmit() {
 
     <!-- Categoria: Tecnic: Versio -->
     <label v-if="category === 'categTech'" for="softwareVersion">Versió de software</label>
-    <div v-if="category === 'categTech'">
-      <input
-        id="softwareVersion"
-        type="text"
-        v-model="softwareVersion"
-        v-bind="softwareVersionAttrs"
-        :class="{ invalid: !!errors.softwareVersion }"
-        :aria-invalid="!!errors.softwareVersion"
-        aria-describedby="softwareVersion-error"
-        placeholder="(num. versió)"
-      />
-    </div>
+    <input
+      v-if="category === 'categTech'"
+      id="softwareVersion"
+      type="text"
+      v-model="softwareVersion"
+      v-bind="softwareVersionAttrs"
+      :class="{ invalid: !!errors.softwareVersion }"
+      :aria-invalid="!!errors.softwareVersion"
+      aria-describedby="softwareVersion-error"
+      placeholder="(num. versió)"
+    />
     <p v-if="errors.softwareVersion" id="softwareVersion-error" class="error">
       {{ errors.softwareVersion }}
     </p>
 
     <!-- Categoria: Facturacio: Num factura -->
     <label v-if="category === 'categInvoice'" for="invoiceId">Identificador de factura</label>
-    <div v-if="category === 'categInvoice'">
-      <input
-        id="invoiceId"
-        type="text"
-        v-model="invoiceId"
-        v-bind="invoiceIdAttrs"
-        :class="{ invalid: !!errors.invoiceId }"
-        :aria-invalid="!!errors.invoiceId"
-        aria-describedby="numfactura-error"
-        placeholder="(id. factura)"
-      />
-    </div>
+    <input
+      v-if="category === 'categInvoice'"
+      id="invoiceId"
+      type="text"
+      v-model="invoiceId"
+      v-bind="invoiceIdAttrs"
+      :class="{ invalid: !!errors.invoiceId }"
+      :aria-invalid="!!errors.invoiceId"
+      aria-describedby="numfactura-error"
+      placeholder="(id. factura)"
+    />
     <p v-if="errors.invoiceId" id="numfactura-error" class="error">{{ errors.invoiceId }}</p>
 
     <!-- Descripció -->
     <label for="description">Descripció detallada</label>
-    <input
+    <textarea
       id="description"
       type="text"
       v-model="description"
@@ -187,5 +185,12 @@ function onSubmit() {
 .btn[disabled] {
   opacity: 0.6;
   cursor: not-allowed;
+}
+textarea {
+  width: 100%;
+  min-height: 60px;
+  max-height: 200px;
+  padding: 8px;
+  resize: vertical;
 }
 </style>
