@@ -44,23 +44,15 @@ const [invoiceId, invoiceIdAttrs] = defineField('invoiceId');
 const [description, descriptionAttrs] = defineField('description');
 
 function onSubmit() {
-  console.log(
-    'INCIDENCIA:',
-    JSON.stringify({
-      subject: values.subject,
-      email: values.email,
-      category: values.category,
-      description: values.description,
-      details: {
-        ...(values.category === 'categTech' && {
-          softwareVersion: values.softwareVersion,
-        }),
-        ...(values.category === 'categInvoice' && {
-          invoiceId: values.invoiceId,
-        }),
-      },
-    })
-  );
+  const { softwareVersion, invoiceId, ...rest } = values;
+  const payload = {
+    ...rest,
+    details: {
+      ...(values.category === 'categTech' && { softwareVersion }),
+      ...(values.category === 'categInvoice' && { invoiceId }),
+    },
+  };
+  console.log('INCIDENCIA: ' + JSON.stringify(payload));
 }
 </script>
 
