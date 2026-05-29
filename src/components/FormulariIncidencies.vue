@@ -52,7 +52,7 @@ function onSubmit() {
       ...(values.category === 'categInvoice' && { invoiceId }),
     },
   };
-  console.log('INCIDENCIA: ' + JSON.stringify(payload));
+  console.log('INCIDENCIA: ' + JSON.stringify(payload, null, 2));
 }
 </script>
 
